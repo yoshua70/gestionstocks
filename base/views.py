@@ -19,3 +19,7 @@ def stocks(request):
 def produit(request):
     context = {}
     return render(request, 'base/produit.html', context)
+
+def ficheProduit(request, pk):
+    context = { 'idProduit': pk }
+    return render(request, 'base/ficheProduit.html', context)
