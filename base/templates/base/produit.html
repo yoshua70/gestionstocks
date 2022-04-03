@@ -9,7 +9,7 @@
     >
       <h5 class="font-bold">
         <a
-          href="/produit/{{produit.designation}}"
+          href="{% url 'ficheProduit' produit.designation %}"
           class="transition duration-150 all hover:text-gray-400"
         >
           {{produit.libelle}}
