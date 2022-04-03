@@ -1,7 +1,24 @@
 {% extends 'layout.html' %} {% block content %}
 <h1 class="text-3xl font-bold underline">Produits</h1>
 <div>
-  {% block produit %}{% endblock produit %}
-  <h2 class="text-2xl">Liste Produits</h2>
+  <a href="/produit" class="text-xl">Liste Produits</a>
+  <div class="flex gap-4">
+    {% for produit in produits %}
+    <div
+      class="flex flex-col justify-between gap-4 rounded-lg bg-white drop-shadow-lg px-5 py-5 max-w-5 transition duration-150 all hover:-translate-y-2"
+    >
+      <h5 class="font-bold">
+        <a
+          href="/produit/{{produit.designation}}"
+          class="transition duration-150 all hover:text-gray-400"
+        >
+          {{produit.libelle}}
+        </a>
+      </h5>
+      <p>{{produit.description}}</p>
+      <p class="italic">{{produit.statut}}</p>
+    </div>
+    {% endfor %}
+  </div>
 </div>
 {% endblock content %}

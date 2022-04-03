@@ -1,5 +1,9 @@
-{% extends 'base/produit.html' %} {% block produit %}
-<div>
-  <h2 class="text-2xl">Produit #{{ idProduit }}</h2>
+{% extends 'layout.html' %} {% block content %}
+<div class="flex flex-col gap-4">
+  <h2 class="text-xl">{{ produit.libelle }}</h2>
+  <p>Libellé: {{ produit.libelle }}</p>
+  <p>Désignation: {{ produit.designation }}</p>
+  <p>Description: {{ produit.description }}</p>
+  <p>Statut: {{ produit.statut }}</p>
 </div>
-{% endblock produit %}%}
+{% endblock content %}
