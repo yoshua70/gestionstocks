@@ -2,10 +2,10 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 def home(request):
-    return render(request, 'home.html')
+    return render(request, 'base/home.html')
 
 def appro(request):
-    return render(request, 'appro.html')
+    return render(request, 'base/appro.html')
 
 def commande(request):
     return HttpResponse("Commande")
@@ -17,4 +17,5 @@ def stocks(request):
     return HttpResponse("Stocks")
 
 def produit(request):
-    return render(request, 'produit.html')
+    context = {}
+    return render(request, 'base/produit.html', context)
