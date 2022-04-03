@@ -2,10 +2,10 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 def home(request):
-    return HttpResponse("Home page")
+    return render(request, 'home.html')
 
 def appro(request):
-    return HttpResponse("Approvisionnement")
+    return render(request, 'appro.html')
 
 def commande(request):
     return HttpResponse("Commande")
