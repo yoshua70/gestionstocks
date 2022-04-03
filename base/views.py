@@ -17,4 +17,4 @@ def stocks(request):
     return HttpResponse("Stocks")
 
 def produit(request):
-    return HttpResponse("Produits")
+    return render(request, 'produit.html')
