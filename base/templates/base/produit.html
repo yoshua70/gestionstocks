@@ -16,7 +16,7 @@
     >
       <h5 class="font-bold">
         <a
-          href="{% url 'fiche-produit' produit.designation %}"
+          href="{% url 'fiche-produit' produit.id %}"
           class="transition duration-150 all hover:text-gray-400"
         >
           {{produit.libelle}}
@@ -24,6 +24,7 @@
       </h5>
       <p>{{produit.description}}</p>
       <p class="italic">{{produit.statut}}</p>
+      <a href={% url 'update-produit' produit.id %}>Mettre à jour</a>
     </div>
     {% endfor %}
   </div>

@@ -24,7 +24,7 @@ def produit(request):
     return render(request, 'base/produit.html', context)
 
 def ficheProduit(request, pk):
-    produit = Produit.objects.get(designation=pk)
+    produit = Produit.objects.get(id=pk)
     context = { 'produit': produit }
     return render(request, 'base/ficheProduit.html', context)
 
@@ -36,5 +36,18 @@ def createProduit(request):
             form.save()
             return redirect('produit')
     
-    context = {'form': form}
+    context = {'form': form, 'operation': "create"}
+    return render(request, 'base/produit_form.html', context)
+
+def updateProduit(request, pk):
+    produit = Produit.objects.get(id=pk)
+    form = ProduitForm(instance=produit)
+
+    if request.method == 'POST':
+        form = ProduitForm(request.POST, instance=produit)
+        if form.is_valid:
+            produit = form.save()
+            return redirect('fiche-produit', pk=produit.id)
+
+    context = {'form': form, 'operation': "update"}
     return render(request, 'base/produit_form.html', context)
