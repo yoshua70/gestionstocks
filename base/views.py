@@ -51,3 +51,10 @@ def updateProduit(request, pk):
 
     context = {'form': form, 'operation': "update"}
     return render(request, 'base/produit_form.html', context)
+
+def deleteProduit(request, pk):
+    produit = Produit.objects.get(id=pk)
+    if request.method == 'POST':
+        produit.delete()
+        return redirect('produit')
+    return render(request, 'base/delete_produit.html', {'obj': produit})
