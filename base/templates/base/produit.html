@@ -1,0 +1,33 @@
+{% extends 'layout.html' %} {% block content %}
+<div class="flex justify-between">
+  <h1 class="text-3xl font-bold underline">Produits</h1>
+  <a
+    href="/create-produit"
+    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+    >Ajouter un produit</a
+  >
+</div>
+<div>
+  <a href="/produit" class="text-xl">Liste Produits</a>
+  <div class="flex gap-4">
+    {% for produit in produits %}
+    <div
+      class="flex flex-col justify-between gap-4 rounded-lg bg-white drop-shadow-lg px-5 py-5 max-w-5 transition duration-150 all hover:-translate-y-2 max-w-sm"
+    >
+      <h5 class="font-bold">
+        <a
+          href="{% url 'fiche-produit' produit.id %}"
+          class="transition duration-150 all hover:text-gray-400"
+        >
+          {{produit.libelle}}
+        </a>
+      </h5>
+      <p>{{produit.description}}</p>
+      <p class="italic">{{produit.statut}}</p>
+      <a href={% url 'update-produit' produit.id %} class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline text-center">Mettre à jour</a>
+      <a href={% url 'delete-produit' produit.id %} class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline text-center">Supprimer</a>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock content %}

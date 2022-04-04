@@ -1,0 +1,9 @@
+{% extends 'layout.html' %} {% block content %}
+<div class="flex flex-col gap-4">
+  <h2 class="text-xl">{{ produit.libelle }}</h2>
+  <p>Libellé: {{ produit.libelle }}</p>
+  <p>Désignation: {{ produit.designation }}</p>
+  <p>Description: {{ produit.description }}</p>
+  <p>Statut: {{ produit.statut }}</p>
+</div>
+{% endblock content %}
