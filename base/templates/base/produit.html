@@ -1,5 +1,12 @@
 {% extends 'layout.html' %} {% block content %}
-<h1 class="text-3xl font-bold underline">Produits</h1>
+<div class="flex justify-between">
+  <h1 class="text-3xl font-bold underline">Produits</h1>
+  <a
+    href="/create-produit"
+    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+    >Ajouter un produit</a
+  >
+</div>
 <div>
   <a href="/produit" class="text-xl">Liste Produits</a>
   <div class="flex gap-4">
@@ -9,7 +16,7 @@
     >
       <h5 class="font-bold">
         <a
-          href="{% url 'ficheProduit' produit.designation %}"
+          href="{% url 'fiche-produit' produit.designation %}"
           class="transition duration-150 all hover:text-gray-400"
         >
           {{produit.libelle}}

@@ -1,11 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
-
-produits = [
-        {'libelle': 'Sneakers', 'designation': 'snk001', 'description': 'Des sneakers solides pour vous accompagner dans tous vos déplacements', 'statut': 'en stock'},
-        {'libelle': 'T-shirt Sportif', 'designation': 'tshirtsport', 'description': 'Du coton de qualité pour vos activités sportives', 'statut': 'en stock'},
-        {'libelle': 'Montre Tactique GX-0', 'designation': 'gx0', 'description': "Montre tactique, résistante à l'eau", 'statut': 'en stock'},
-    ]
+from base.forms import ProduitForm
+from base.models import Produit
 
 def home(request):
     return render(request, 'base/home.html')
@@ -23,12 +19,22 @@ def stocks(request):
     return HttpResponse("Stocks")
 
 def produit(request):
+    produits = Produit.objects.all()
     context = { 'produits': produits }
     return render(request, 'base/produit.html', context)
 
 def ficheProduit(request, pk):
-    for i in produits: 
-        if i['designation'] == pk:
-            produit = i
+    produit = Produit.objects.get(designation=pk)
     context = { 'produit': produit }
     return render(request, 'base/ficheProduit.html', context)
+
+def createProduit(request):
+    form = ProduitForm()
+    if request.method == 'POST':
+        form = ProduitForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('produit')
+    
+    context = {'form': form}
+    return render(request, 'base/produit_form.html', context)

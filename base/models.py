@@ -4,7 +4,7 @@ from django.db import models
 # Create your models here.
 
 class Produit(models.Model):
-    designation = models.CharField(max_length=50)
+    designation = models.CharField(max_length=50, unique=True)
     libelle = models.CharField(max_length=100)
     description = models.TextField(null=True, max_length=500, blank=True)
     StatutStock = models.TextChoices('StatutStock', 'ENSTOCK RUPTURE')
