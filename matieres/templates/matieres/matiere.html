@@ -2,7 +2,7 @@
 <div class="flex justify-between">
   <h1 class="text-3xl font-bold underline">Matieres Premières</h1>
   <a
-    href=""
+    href="{% url 'create-matiere' %}"
     class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
     >Ajouter une matiere première</a
   >
@@ -19,11 +19,11 @@
           href="{% url 'fiche-matiere' matiere.id %}"
           class="transition duration-150 all hover:text-gray-400"
         >
-          {{matiere.libelleMat}}
+          {{matiere.libelleMatiere}}
         </a>
       </h5>
       <p>{{matiere.description}}</p>
-      <p class="italic">{{matiere.statut}}</p>
+      <p class="italic">{{matiere.status}}</p>
       <a href={% url 'update-matiere' matiere.id %} class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline text-center">Mettre à jour</a>
       <a href={% url 'delete-matiere' matiere.id %} class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline text-center">Supprimer</a>
     </div>
