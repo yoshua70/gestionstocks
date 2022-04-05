@@ -1,31 +1,11 @@
 from django.shortcuts import render, redirect
-<<<<<<< HEAD:base/views.py
-from django.http import HttpResponse
-from base.forms import ProduitForm
-from base.models import Produit
-=======
 from produits.forms import ProduitForm
 from produits.models import Produit
 
->>>>>>> de8943b1c6d5980c8aeae62bacd6828142451c5b:produits/views.py
 
 def home(request):
     return render(request, 'produits/home.html')
 
-<<<<<<< HEAD:base/views.py
-def appro(request):
-    return render(request, 'base/appro.html')
-
-def commande(request):
-    return HttpResponse("Commande")
-
-def client(request):
-    return HttpResponse("Client")
-
-def stocks(request):
-    return HttpResponse("Stocks")
-=======
->>>>>>> de8943b1c6d5980c8aeae62bacd6828142451c5b:produits/views.py
 
 def produit(request):
     produits = Produit.objects.all()
