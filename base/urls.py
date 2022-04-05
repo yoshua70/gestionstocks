@@ -6,6 +6,7 @@ urlpatterns = [
     path('commande/', views.commande, name="commande"),
     path('appro/', views.appro, name="appro"),
     path('produit/', views.produit, name="produit"),
+    path('matiere/', views.matiere, name="matiere"),
     path('produit/<str:pk>/', views.ficheProduit, name="fiche-produit"),
     path('create-produit/', views.createProduit, name="create-produit"),
     path('update-produit/<str:pk>/', views.updateProduit, name="update-produit"),
