@@ -2,13 +2,13 @@
 <div class="flex justify-between">
   <h1 class="text-3xl font-bold underline">Matieres Premières</h1>
   <a
-    href="{% url 'create-matiere' %}"
+    href=""
     class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
     >Ajouter une matiere première</a
   >
 </div>
 <div>
-  <a href="/matiere" class="text-xl">Liste des matières premières</a>
+  <a href="{% url 'matieres' %}" class="text-xl">Liste des matières premières</a>
   <div class="flex gap-4">
     {% for matiere in matierePremiere %}
     <div

@@ -10,4 +10,4 @@ def matiere(request):
     context = {
         'matierePremiere': listeMatiere
     }
-    return render(request, 'base/matiere.html', context)
+    return render(request, 'matieres/matiere.html', context)
