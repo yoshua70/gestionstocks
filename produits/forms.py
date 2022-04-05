@@ -1,5 +1,11 @@
+<<<<<<< HEAD:base/forms.py
 from django.forms import ChoiceField, ModelForm, Select, TextInput, Textarea
 from .models import Produit
+=======
+from django.forms import ModelForm, Select, TextInput, Textarea
+from .models import Produit
+
+>>>>>>> de8943b1c6d5980c8aeae62bacd6828142451c5b:produits/forms.py
 
 class ProduitForm(ModelForm):
     class Meta:
@@ -23,4 +29,7 @@ class ProduitForm(ModelForm):
                 'class': "border rounded w-full"
             }, choices=['ENSTOCK', 'RUPTURE'])
         }
+<<<<<<< HEAD:base/forms.py
 
+=======
+>>>>>>> de8943b1c6d5980c8aeae62bacd6828142451c5b:produits/forms.py
