@@ -9,7 +9,9 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
-#import environ
+import environ
+env = environ.Env()
+environ.Env.read_env()
 from pathlib import Path
 
 # env = environ.Env()
@@ -22,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "SECRET_KEY"
+SECRET_KEY = env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -78,23 +80,23 @@ WSGI_APPLICATION = 'gestionstocks.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': env("DATABASE_NAME"),
-#         'USER': env("DATABASE_USER"),
-#         'PASSWORD': env("DATABASE_PASSWORD"),
-#         'HOST': env("DATABASE_HOST"),
-#         'PORT': env("DATABASE_PORT"),
-#     }
-# }
-
 DATABASES = {
-    'default':{
-        'ENGINE':'django.db.backends.sqlite3',
-        'NAME':'db.sqlite3'
+    'default': {
+        'ENGINE': env("DATABASE_ENGINE"),
+        'NAME': env("DATABASE_NAME"),
+        'USER': env("DATABASE_USER"),
+        'PASSWORD': env("DATABASE_PASSWORD"),
+        'HOST': env("DATABASE_HOST"),
+        'PORT': env("DATABASE_PORT"),
     }
 }
+
+# DATABASES = {
+#     'default':{
+#         'ENGINE':'django.db.backends.sqlite3',
+#         'NAME':'db.sqlite3'
+#     }
+# }
 
 
 # Password validation
