@@ -1,5 +1,5 @@
 from django.forms import ChoiceField, ModelForm, Select, TextInput, Textarea
-from .models import Produit, MatierePremiere
+from .models import Produit
 
 class ProduitForm(ModelForm):
     class Meta:
@@ -24,18 +24,3 @@ class ProduitForm(ModelForm):
             }, choices=['ENSTOCK', 'RUPTURE'])
         }
 
-class MatierePremiereForm(ModelForm):
-    class Meta:
-        model = MatierePremiere
-        fields = "__all__"
-        widgets = {
-            'codeMatiere':TextInput(attrs={
-
-            }),
-            'libelleMatiere':TextInput(attrs={
-
-            }),
-            'status':Select(attrs={
-
-            },choices=['En Stock', 'En rupture'])
-        }

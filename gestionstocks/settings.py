@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'base.apps.BaseConfig'
+    'base.apps.BaseConfig',
+    'matiere',
 ]
 
 MIDDLEWARE = [
@@ -90,13 +91,6 @@ DATABASES = {
         'PORT': env("DATABASE_PORT"),
     }
 }
-
-# DATABASES = {
-#     'default':{
-#         'ENGINE':'django.db.backends.sqlite3',
-#         'NAME':'db.sqlite3'
-#     }
-# }
 
 
 # Password validation

@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from base.forms import ProduitForm
-from base.models import MatierePremiere, Produit
+from base.models import Produit
 
 def home(request):
     return render(request, 'base/home.html')
@@ -17,13 +17,6 @@ def client(request):
 
 def stocks(request):
     return HttpResponse("Stocks")
-
-def matiere(request):
-    listeMatiere = MatierePremiere.objects.all()
-    context = {
-        'matierePremiere':listeMatiere
-    }
-    return render(request,'base/matiere.html', context)
 
 def produit(request):
     produits = Produit.objects.all()
