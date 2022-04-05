@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, render, redirect
 
 from matieres.models import MatierePremiere
@@ -32,3 +33,10 @@ def updateMatiere(request,pk):
         return redirect('matieres')
     return render(request, 'matieres/matiere_form.html', {'form':form, 'operation':'update'})
 
+def deleteMatiere(request, pk):
+    instance = get_object_or_404(MatierePremiere,id=pk)
+    if request.method == 'POST':
+        instance.delete()
+        return redirect('matieres')
+    return HttpResponse({'m':'message'})
+    
