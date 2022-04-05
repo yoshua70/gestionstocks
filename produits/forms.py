@@ -1,5 +1,6 @@
-from django.forms import ChoiceField, ModelForm, Select, TextInput, Textarea
-from .models import Produit, MatierePremiere
+from django.forms import ModelForm, Select, TextInput, Textarea
+from .models import Produit
+
 
 class ProduitForm(ModelForm):
     class Meta:
@@ -22,20 +23,4 @@ class ProduitForm(ModelForm):
             'statut': Select(attrs={
                 'class': "border rounded w-full"
             }, choices=['ENSTOCK', 'RUPTURE'])
-        }
-
-class MatierePremiereForm(ModelForm):
-    class Meta:
-        model = MatierePremiere
-        fields = "__all__"
-        widgets = {
-            'codeMatiere':TextInput(attrs={
-
-            }),
-            'libelleMatiere':TextInput(attrs={
-
-            }),
-            'status':Select(attrs={
-
-            },choices=['En Stock', 'En rupture'])
         }

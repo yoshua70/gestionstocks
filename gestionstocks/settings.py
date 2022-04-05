@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'base.apps.BaseConfig'
+    'produits.apps.ProduitsConfig',
+    'matieres.apps.MatieresConfig',
+    'stocks.apps.StocksConfig'
 ]
 
 MIDDLEWARE = [
@@ -90,9 +92,9 @@ WSGI_APPLICATION = 'gestionstocks.wsgi.application'
 # }
 
 DATABASES = {
-    'default':{
-        'ENGINE':'django.db.backends.sqlite3',
-        'NAME':'db.sqlite3'
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'db.sqlite3'
     }
 }
 

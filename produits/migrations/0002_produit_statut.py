@@ -6,13 +6,14 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('base', '0001_initial'),
+        ('produits', '0001_initial'),
     ]
 
     operations = [
         migrations.AddField(
             model_name='produit',
             name='statut',
-            field=models.CharField(blank=True, choices=[('ENSTOCK', 'Enstock'), ('RUPTURE', 'Rupture')], default='ENSTOCK', max_length=10),
+            field=models.CharField(blank=True, choices=[(
+                'ENSTOCK', 'Enstock'), ('RUPTURE', 'Rupture')], default='ENSTOCK', max_length=10),
         ),
     ]
