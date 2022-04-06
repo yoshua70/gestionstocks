@@ -40,3 +40,8 @@ def deleteMatiere(request, pk):
         return redirect('matieres')
     return HttpResponse({'m':'message'})
     
+
+def detailsMatiere(request, pk):
+    matieres = MatierePremiere.objects.get(id=pk)
+    context = {'matiere': matieres}
+    return render(request, 'matieres/fiche-matiere.html', context)
