@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'produits.apps.ProduitsConfig',
     'matieres.apps.MatieresConfig',
     'stocks.apps.StocksConfig',
-    'commandes.apps.CommandesConfig'
+    'commandes.apps.CommandesConfig',
+    'clients.apps.ClientsConfig'
 ]
 
 MIDDLEWARE = [
