@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'produits.apps.ProduitsConfig',
     'matieres.apps.MatieresConfig',
-    'stocks.apps.StocksConfig'
+    'stocks.apps.StocksConfig',
+    'commandes.apps.CommandesConfig'
 ]
 
 MIDDLEWARE = [
