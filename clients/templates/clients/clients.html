@@ -2,10 +2,67 @@
 <div class="flex justify-between">
   <h1 class="text-3xl font-bold underline">Clients</h1>
   <a
-    href=""
+    href="{% url 'create-client' %}"
     class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
     >Ajouter un client</a
   >
 </div>
-<div class="grid grid-cols-3 gap-4"></div>
+<div class="flex flex-col bg-white shadow-md rounded p-8 mb-4 mt-4">
+  <table class="border-collapse table-auto w-full text-sm">
+    <thead>
+      <tr>
+        <th
+          class="border-b dark:border-slate-600 font-medium p-4 pl-8 pt-0 pb-3 text-slate-400 dark:text-slate-600 text-left"
+        >
+          Nom
+        </th>
+        <th
+          class="border-b dark:border-slate-600 font-medium p-4 pl-8 pt-0 pb-3 text-slate-400 dark:text-slate-600 text-left"
+        >
+          Prenoms
+        </th>
+        <th
+          class="border-b dark:border-slate-600 font-medium p-4 pl-8 pt-0 pb-3 text-slate-400 dark:text-slate-600 text-left"
+        >
+          Email
+        </th>
+        <th
+          class="border-b dark:border-slate-600 font-medium p-4 pl-8 pt-0 pb-3 text-slate-400 dark:text-slate-600 text-left"
+        >
+          Type
+        </th>
+        <th
+          class="border-b dark:border-slate-600 font-medium p-4 pl-8 pt-0 pb-3 text-slate-400 dark:text-slate-600 text-left"
+        >
+          Adresse
+        </th>
+
+        <th
+          class="border-b dark:border-slate-600 font-medium p-4 pl-8 pt-0 pb-3 text-slate-400 dark:text-slate-600 text-left"
+        ></th>
+      </tr>
+    </thead>
+    {% if clients %}
+    <tbody>
+      {% for client in clients %}
+      <tr class="border-b border-slate-100 h-12 text-slate-500">
+        <td>{{ client.nom }}</td>
+        {% if client.prenom != None %}
+        <td>{{ client.nom }}</td>
+        {% else %}
+        <td>-</td>
+        {% endif %}
+        <td>{{ client.email }}</td>
+        <td>{{ client.typeClient }}</td>
+        <td>{{client.pays}}, {{client.ville}}, {{client.adresse}}</td>
+        <td>
+          <a href={% url 'fiche-client' client.id %} class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline text-center">Consulter</a>
+          <a href={% url 'update-client' client.id %} class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline text-center">Mettre à jour</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+    {% endif %}
+  </table>
+</div>
 {% endblock content %}

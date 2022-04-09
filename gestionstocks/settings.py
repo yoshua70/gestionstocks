@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'matieres.apps.MatieresConfig',
     'stocks.apps.StocksConfig',
     'commandes.apps.CommandesConfig',
-    'clients.apps.ClientsConfig'
+    'clients.apps.ClientsConfig',
+    'django_countries'
 ]
 
 MIDDLEWARE = [
