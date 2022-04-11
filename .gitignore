@@ -2,5 +2,9 @@
 env
 .env
 db.sqlite3
+<<<<<<< HEAD
 */migrations
 jstoolchain/node_modules
+=======
+*/migrations
+>>>>>>> 370c524fd76c025a5d526b3342a293c83ab62ced
