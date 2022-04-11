@@ -16,7 +16,7 @@ def produit(request):
 def ficheProduit(request, pk):
     produit = Produit.objects.get(id=pk)
     context = {'produit': produit}
-    return render(request, 'produits/ficheProduit.html', context)
+    return render(request, 'produits/fiche-produit.html', context)
 
 
 def createProduit(request):
