@@ -1,6 +1,6 @@
 {% extends 'layout.html' %} {% block content %}
 <div class="flex justify-between">
-  <h1 class="text-3xl font-bold underline">Produits</h1>
+  <h1 class="text-3xl font-bold underline">Commandes</h1>
   <a
     href="{{request.META.HTTP_REFERER}}"
     class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
@@ -14,10 +14,21 @@
     class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
   >
     <h2 class="text-2xl">
-      {% if operation == "update" %}Modifier produit {% else %}Ajouter un
-      nouveau produit{% endif %}
+      {% if operation == "create" %}Nouvelle commande{% else %}Modifier
+      commande{% endif %}
     </h2>
-    {% csrf_token %} {{ form.as_p }} {% if operation == "update" %}
+    {% csrf_token %}
+    <div>
+      <label>Produits</label>
+      <select>
+        {% for produit in produits %}
+        <option value="{{produit.designation}}">{{produit.libelle}}</option>
+        {% endfor %}
+      </select>
+      <button id="add-item">Ajouter</button>
+    </div>
+    <ul id="item-list"></ul>
+    {% if operation == "update" %}
     <input
       type="submit"
       value="Modifier"
@@ -32,4 +43,8 @@
     {% endif %}
   </form>
 </div>
-{% endblock content %}
+{% endblock content %} {% block customScripts %}
+<script>
+  console.log("hello");
+</script>
+{% endblock customScripts %}

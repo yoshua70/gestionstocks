@@ -1,0 +1,22 @@
+{% extends 'layout.html' %} {% block content %}
+<div class="flex">
+  <form
+    method="POST"
+    action=""
+    class="m-auto flex flex-col justify-between gap-4 rounded-lg bg-white drop-shadow-lg px-5 py-5 max-w-5 transition duration-150 all hover:-translate-y-2 max-w-sm"
+  >
+    {% csrf_token %}
+    <p>Voulez-vous supprimer "{{obj}}" ?</p>
+    <a
+      href="{{request.META.HTTP_REFERER}}"
+      class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline text-center"
+      >Retour</a
+    >
+    <input
+      type="submit"
+      value="Confirmer"
+      class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline text-center"
+    />
+  </form>
+</div>
+{% endblock content%}

@@ -1,0 +1,37 @@
+{% extends 'layout.html' %} {% block content %}
+
+<div class="grid grid-cols-5 grid-rows-5 gap-4 mt-4">
+  <a
+    class="flex flex-col rounded-lg bg-white drop-shadow-lg px-5 py-5 col-span-2 row-span-4"
+    href="{% url 'commandes' %}"
+  >
+    <h1>Commandes</h1>
+  </a>
+  <a
+    class="flex flex-col rounded-lg bg-white drop-shadow-lg px-5 py-5 col-span-2 row-span-4"
+    href="#"
+  >
+    <h1>Approvisionnement</h1>
+  </a>
+  <div class="row-span-4 grid grid-rows-4 gap-4">
+    <div
+      class="rounded-lg bg-green-400 drop-shadow-lg px-5 py-5 col-span-1 text-white row-span-2"
+    >
+      <h1>Indicateur de performmance</h1>
+    </div>
+    <a
+      class="rounded-lg bg-blue-400 drop-shadow-lg px-5 py-5 col-span-1 text-white"
+      href="{% url 'produit' %}"
+    >
+      Produits
+    </a>
+    <a
+      class="rounded-lg bg-pink-400 drop-shadow-lg px-5 py-5 col-span-1 text-white"
+      href="{% url 'matieres' %}"
+    >
+      Matieres
+    </a>
+  </div>
+</div>
+
+{% endblock content %}

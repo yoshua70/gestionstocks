@@ -41,7 +41,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'produits.apps.ProduitsConfig',
     'matieres.apps.MatieresConfig',
-    'stocks.apps.StocksConfig'
+    'stocks.apps.StocksConfig',
+    'commandes.apps.CommandesConfig',
+    'clients.apps.ClientsConfig',
+    'django_countries'
 ]
 
 MIDDLEWARE = [
@@ -126,6 +129,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+    'static/'
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

@@ -4,6 +4,7 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
 <html>
+  {% load static %}
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -11,8 +12,11 @@
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="" />
-    <link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.1/dist/flowbite.min.css" />
-    <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/flowbite@1.4.1/dist/flowbite.min.css"
+    />
+    <link rel="stylesheet" href="{% static "css/tailwind-output.css" %}">
   </head>
   <body>
     <!--[if lt IE 7]>
@@ -27,8 +31,6 @@
     </div>
 
     <script src="" async defer></script>
-    {% block customScripts %}
-
-    {% endblock customScripts %}
+    {% block customScripts %} {% endblock customScripts %}
   </body>
 </html>
